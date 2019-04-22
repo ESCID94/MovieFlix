@@ -4,9 +4,9 @@ Authors:
 
 @alvarog1: Álvaro González
 
-@ESCID94: Enrique Salazar
-
 @lucaslerv: Lucas Raposo
+
+@ESCID94: Enrique Salazar
 
 @NaderZaiter: Nader Zaiter
 
