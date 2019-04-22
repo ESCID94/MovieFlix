@@ -1,9 +1,15 @@
 # MovieFlix
 
-#Streaming de Películas de subscripción Premium 
+Authors:
+@alvarog1: Álvaro González
+@ESCID94: Enrique Salazar
+@lucaslerv: Lucas Raposo
+@NaderZaiter: Nader Zaiter
 
--6 Categorías()
+#Formación Inicial Java (In-Talent): MovieFlix: películas by streaming
 
--Cuota Mensual
+-MovieFlix dispondrá de catálogos de películas para streaming. 
 
--BBDD de Clientes y Películas
+-En el portal se comercializan lotes de películas. 
+
+-Cada categoría/catalogo (policiaca, romántica, aventuras, comedia, animación y thriller) constituye un lote de pelis. Los socios pagan una cuota mensual por cada catálogo (pueden tener 1, 2, …). Durante ese mes pueden ver las películas del catálogo.
