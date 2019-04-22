@@ -1,9 +1,13 @@
 # MovieFlix
 
 Authors:
+
 @alvarog1: Álvaro González
+
 @ESCID94: Enrique Salazar
+
 @lucaslerv: Lucas Raposo
+
 @NaderZaiter: Nader Zaiter
 
 #Formación Inicial Java (In-Talent): MovieFlix: películas by streaming
