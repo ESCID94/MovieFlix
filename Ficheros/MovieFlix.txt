@@ -1,0 +1,130 @@
+Movie flix
+----------
+
+Product Backlog
+---------------
+Sprint 1
+---------------
+
+1 - Gestion usuario
+ 
+	1-Alta usuario
+
+		1-Carcasa Usuario DAO:
+		
+				1- crear proyecto MovieFlix in Eclipse Java
+				2- crear Objeto Clase Usuario
+				3- Crear tabla usuario en MySQL en base de datos MovieFlix(BBDD)
+				4- crear paquete DAO
+				5- crear interfaz generica DAO
+				
+		2-Metodo altaUsuario DAO:
+		
+				1- implementar DAO para usuario
+				2- crear metodo altaUsuario en DAOUsuario
+				
+		3-Carcasa Usuario Servicios:
+		
+				1- crear paquete Servicios
+				2- crear interfaz generica Servicios
+				
+		4-Metodo altaUsuario Servicios:
+		
+				1- implementar Servicios para usuario
+				2- crear metodo altaUsuario en ServiciosUsuario
+				
+		5-Carcasa Usuario Control:
+		
+				4- crear paquete Control
+				5- crear interfaz generica Control
+				
+		6-Metodo altaUsuario Control:
+		
+				1- implementar Control para usuario
+				2- crear metodo altaUsuario en ControlUsuario
+
+
+	2-Probar Alta usuario
+				
+	3-Baja usuario
+				
+		1-Metodo bajaUsuario DAO:
+		
+				1- crear metodo bajaUsuario en DAOUsuario
+				
+		2-Metodo bajaUsuario Servicios:
+		
+				1- crear metodo bajaUsuario en ServiciosUsuario
+				
+		3-Metodo bajaUsuario Control:
+		
+				1- crear metodo bajaUsuario en ControlUsuarios
+				
+
+	4-Probar Baja Usuario
+	
+	3-Modificar usuario
+				
+		1-Metodo modificarUsuario DAO:
+		
+				1- crear metodo modificarUsuario en DAOUsuario
+				
+		2-Metodo modificarUsuario Servicios:
+		
+				1- crear metodo modificarUsuario en ServiciosUsuario
+				
+		3-Metodo modificarUsuario Control:
+		
+				1- crear metodo modificarUsuario en ControlUsuarios
+				
+
+	4-Probar Modificar Usuario
+	
+	5-Prueba Usuario
+	
+	
+
+
+
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja usuario
+								-crear el metodo
+								1.3-Modificar usuario
+								-crear el metodo
+
+								2- Gestion peliculas
+								1.1-Alta pelicula
+								-crear la BBDD
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja pelicula
+								-crear la metodo
+								1.3-Modificar pelicula
+								-crear el metodo
+
+								3- Gestio categoria
+								1.1-Alta categoria
+								-crear la BBDD
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja categoria
+								-crear el metodo
+								1.3-Modificar categoria
+								-crear el metodo
+
+								4- Listado
+								1.1-l istado Usuario
+								-crear el metodo
+								1.2- listado todas las peliculas
+								-crear el metodo
+								1.3- listado por categoria
+								-crear el metodo
+								1.4-l istado peliculas mas vistas
+								-crear el metodo
+								1.5- listado peliculas mas valoradas
+								-crear el metodo
+								1.6- listado de las peliculas que no puede ver el usuario
+								-crear el metodo
+								1.7- listado de las peliculas no vistas
+								-crear el metodo
