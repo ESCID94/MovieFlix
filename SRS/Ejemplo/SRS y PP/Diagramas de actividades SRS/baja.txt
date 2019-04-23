@@ -1,0 +1,29 @@
+@startuml
+
+title Baja de descuento
+
+
+start
+
+:Obtener datos de entrada:id; 
+:Comprobar que los datos son válidos; 
+
+
+if () then (datos no validos)
+  :Mensaje de datos no válidos;
+else (datos válidos)
+
+  :Comprobar que el descuento exista;
+  if () then (descuento encontrado)
+    :Elimino el descuento;
+    :Elimino las relaciones en la que esté;
+    :Mensaje de descuento eliminado;
+  else (descuento no encontrado)
+    :Mensaje de descuento no encontrado;
+  endif
+endif
+
+
+stop
+
+@enduml

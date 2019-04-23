@@ -1,0 +1,10 @@
+6 nombre2 nuevacontra2 nick2 ejemplo@r2 0
+3 nombre3 nuevacontra3 nick3 ejemplo@r3 0
+4 nombre4 contra4 nick4 ejemplo@r4 1
+5 nombre5 nuevacontra5 nick5 ejemplo@r5 0
+6 nombre nuevacontra2 nick ejemplo@r2 0
+0 U1 u1 u_1 ejemplo@u_1 1
+0 U1 u1 u_1 ejemplo@u_1 1
+0 U1 u1 u_1 ejemplo@u_1 1
+0 U1 u1 u_1 ejemplo@u_1 1
+0 U1 u1 u_1 ejemplo@u_1 1

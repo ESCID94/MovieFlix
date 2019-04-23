@@ -1,0 +1,39 @@
+@startuml
+
+title Modificar producto
+
+
+start
+
+:Obtener datos de entrada:id para autentificar; 
+:Comprobar que los datos son válidos; 
+
+
+if () then (datos no validos)
+  :Mensaje de datos no válidos;
+else (datos válidos)
+
+  :Comprobar que el producto exista;
+  if () then (producto encontrado)
+    :Obtener datos de entrada:tipo, activo a cambiar;
+    :Comprobar que los datos son válidos; 
+        if () then (datos no validos)
+            :Mensaje de datos no válidos;
+        else (datos válidos)
+            :Comprobar si se activa;
+            if () then (se activa)
+            else (se desactiva)
+                :Elimina todas las relaciones en las que esté;
+                endif;
+            :Modifico los datos del producto con los nuevos;
+            :Muestra los nuevos datos;
+        endif
+  else (producto no encontrado)
+    :Mensaje de producto no encontrado;
+  endif
+endif
+
+
+stop
+
+@enduml
