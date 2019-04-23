@@ -1,0 +1,32 @@
+@startuml
+
+title añadir producto a establecimiento
+
+
+start
+
+:Obtener datos de entrada:id del prodcuto, id del establecimiento; 
+:Comprobar que los datos son válidos; 
+
+
+if () then (datos no validos)
+  :Mensaje de datos no válidos;
+else (datos válidos)
+  :Comprobar que el producto y el establecimiento existan;
+  if () then (producto y establecimiento encontrados)
+    :Comprobar que el producto no esté en el establcimiento;
+    if () then (no se encuentra)
+        :Añadir producto a establecimiento;
+        :Mensaje de producto añadido;
+    else (se encuentra)
+        :Mensaje de producto ya añadido;
+    endif
+  else (producto y establecimiento no encontrados)
+    :Mensaje de producto y establecimiento no encontrados;
+  endif
+endif
+
+
+stop
+
+@enduml

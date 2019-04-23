@@ -1,0 +1,4 @@
+99 nombre 1 VERDURAS
+1 nombre1 1 VERDURAS
+2 nombre2 1 VERDURAS
+3 nombre3 0 A_FRESCOS

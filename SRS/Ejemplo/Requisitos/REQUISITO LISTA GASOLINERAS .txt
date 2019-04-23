@@ -1,0 +1,11 @@
+Proyecto: comparador de precios de productos vendidos en tiendas de Madrid por cercanía a una ubicación con la ayuda de un mapa para localizar las tiendas.
+
+Descripción requisito: Actualizar la lista de gasolineras.
+
+Será posible añadir nuevas gasolineras a la lista de gasolineras base de datos. Además se eliminarán las gasolineras que hayan cerrado o se modificarán en el caso de que cambien de nombre o localización.
+
+Viabilidad: es viable ya que se cuenta con personal capaz de manejar la base de datos que actualizará periódicamente la lista de gasolineras y tiene acceso de los cambios que se producen en las gasolineras de Madrid mediante información del Ministerio de Industria.
+
+Relevancia: es muy importante que la lista de gasolineras esté actualizada periódicamente para que el usuario pueda sugerir los precios de las nuevas gasolineras y para que no le sea visible gasolineras que no existan. También es importante las modificaciones de nombres o ubicaciones. De está forma no mostraremos al usuario información errónea que le lleve a dejar de usar la aplicación.
+
+Pruebas: Debemos comprobar que es posible realizar las 3 funciones principales de este requisito: añadir, eliminar y editar. Primero empezaremos añadiendo en la base de datos las gasolineras, posteriormente editaremos 1/3 y eliminaremos 1/3. Si finalmente al usuario es visible 2/3 de ellas, 1/3 de estas editadas, y puede visualizar correctamente en ellas los productos podemos decir que funciona.
