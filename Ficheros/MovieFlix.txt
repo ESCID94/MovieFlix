@@ -3,14 +3,23 @@ Movie flix
 1- Gestion usuario 
 1.1-Alta usuario 
 - crear la BBDD
-- crear clase usuario
-- crear capa dao 
-- crear dao usuario
-- crear capa servicio
-- crear servicio usuario
-- crear capa control
-- crear control usuario
-- crear alta usuario
+- crear paquete DAO
+- crear interfaz generica DAO
+- crear interfaz generica servicio
+- crear interfaz generica control
+
+
+
+- crear Clase Usuario
+- Crear tabla usuario
+							
+	- implementar DAO para dao usuario
+
+	- implimentar para servicio usuario
+
+	- implementar para control usuario
+
+- crear metodo altaUsuario 
 - probar alta usuario
 
 
