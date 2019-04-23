@@ -1,0 +1,32 @@
+@startuml
+
+title Alta de establecimientos 
+
+
+start
+
+:Obtener datos de entrada:id,nombre,tipo,CP,activo; 
+:Comprobar que los datos son válidos; 
+
+
+if () then (datos no validos)
+  :Mensaje de datos no válidos;
+else (datos válidos)
+
+  :Comprobar que el establecimiento no exista;
+  if () then (establecimiento no encontrado)
+    :Se añade el establecimiento y el sistema genera su id;
+    :Mensaje de establecimiento registrado;
+  else (establecimiento encontrado)
+    if () then (establecimiento no activo)
+        :Activar establecimiento;
+    else (establecimiento activo)
+        :Mensaje de establecimiento ya activo;
+    endif
+  endif
+endif
+
+
+stop
+
+@enduml

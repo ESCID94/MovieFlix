@@ -1,0 +1,31 @@
+@startuml
+
+title mostrar productos de establecimiento
+
+
+start
+
+:Obtener datos de entrada:id del establecimiento; 
+:Comprobar que los datos son válidos; 
+
+
+if () then (datos no validos)
+  :Mensaje de datos no válidos;
+else (datos válidos)
+  :Comprobar que el establecimiento exista;
+  if () then (establecimiento encontrado)
+    :Comprobar que tenga productos;
+    if () then (si tiene)
+        :Muestra lista de productos;
+    else (si no tiene)
+        :Muestra una lista vacía;
+    endif
+  else (establecimiento no encontrado)
+    :Mensaje de establecimiento no encontrado;
+  endif
+endif
+
+
+stop
+
+@enduml
