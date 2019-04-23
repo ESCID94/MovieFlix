@@ -1,0 +1,69 @@
+Movie flix
+----------
+1- Gestion usuario 
+1.1-Alta usuario 
+- crear la BBDD
+- crear paquete DAO
+- crear interfaz generica DAO
+- crear interfaz generica servicio
+- crear interfaz generica control
+
+
+
+- crear Clase Usuario
+- Crear tabla usuario
+							
+	- implementar DAO para dao usuario
+
+	- implimentar para servicio usuario
+
+	- implementar para control usuario
+
+- crear metodo altaUsuario 
+- probar alta usuario
+
+
+
+
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja usuario
+								-crear el metodo
+								1.3-Modificar usuario
+								-crear el metodo
+
+								2- Gestion peliculas
+								1.1-Alta pelicula
+								-crear la BBDD
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja pelicula
+								-crear la metodo
+								1.3-Modificar pelicula
+								-crear el metodo
+
+								3- Gestio categoria
+								1.1-Alta categoria
+								-crear la BBDD
+								-crear la clase en eclipse
+								-crear el metodo
+								1.2-Baja categoria
+								-crear el metodo
+								1.3-Modificar categoria
+								-crear el metodo
+
+								4- Listado
+								1.1-l istado Usuario
+								-crear el metodo
+								1.2- listado todas las peliculas
+								-crear el metodo
+								1.3- listado por categoria
+								-crear el metodo
+								1.4-l istado peliculas mas vistas
+								-crear el metodo
+								1.5- listado peliculas mas valoradas
+								-crear el metodo
+								1.6- listado de las peliculas que no puede ver el usuario
+								-crear el metodo
+								1.7- listado de las peliculas no vistas
+								-crear el metodo
