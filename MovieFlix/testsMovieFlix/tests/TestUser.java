@@ -2,6 +2,8 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
+import java.sql.SQLException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +16,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import connection.ConnectionBBDD;
+import data.DAOUser;
+import model.User;
 
 
 public class TestUser {
@@ -65,11 +69,21 @@ public class TestUser {
 	// --------
 
 	@Test
-	public void testConnection() {
+	public void testConnection() throws SQLException {
 		ConnectionBBDD connection = new ConnectionBBDD();
 		logger.info("TestConnection()");
 	
 	}
+	
+	@Test
+	public <T> void testAddUser() throws SQLException {
+		User u = new User();
+		u.createUser();
+		DAOUser<T> dao = new DAOUser<T>();
+		dao.add((T) u);
+	}
+	
+	
 	
 	
 }
