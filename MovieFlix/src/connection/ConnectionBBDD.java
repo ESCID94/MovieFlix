@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class ConnectionBBDD {
 
 	private Connection connection = null;
-	private String url = "jdbc:mysql://10.90.36.110:3306/movieflix?autoReconnect=true&useSSL=false";
+	private String url = "jdbc:mysql://10.90.36.110:3306/movieflix?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private String user = "root"; 
 	private String password = "root";
 	

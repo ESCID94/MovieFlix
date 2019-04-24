@@ -1,15 +1,17 @@
 package model;
 
 import java.sql.Time;
+import java.util.Random;
 
 import utilities.LecturaDatos;
+import utilities.Operations;
 
 /**
  * @author Kike
  *
  */
 public class User {
-	private int idUser=0;
+	public int idUser=0;
 	private String nameUser;
 	private String lastName;
 	private String mail;
@@ -22,8 +24,10 @@ public class User {
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
-		idUser++;
+		createRandomId();
 	}
+
+	
 
 	/**
 	 * 
@@ -40,8 +44,12 @@ public class User {
 		this.lastName = lastName;
 		this.mail = mail;
 		this.birthYear = birthYear;
-		idUser++;
+		createRandomId();
 		
+	}
+	private void createRandomId() {
+		// TODO Auto-generated method stub
+		this.idUser = (int)(Math.random() * 1000 + 1);	
 	}
 	
 	/**
@@ -125,10 +133,16 @@ public class User {
 				+ ", birthYear=" + birthYear + "]";
 	}
 	public void createUser() {
+		this.idUser=482;
+		if (!Operations.exists(this.idUser,"users")) {
+			
 		setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
 		setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
 		setMail(LecturaDatos.leerString("Introduce tu email:"));
 		setBirthYear(LecturaDatos.leerInt("Introduce tu año de nacimiento"));
+		}
+		else System.out.println("Usuario" + this.idUser +" ya existe");
+			
 	}
 	public  void viewUser() {
 		
