@@ -2,17 +2,19 @@ package model;
 
 import java.sql.Time;
 
+import utilities.LecturaDatos;
+
 /**
  * @author Kike
  *
  */
 public class User {
-	private int idUser;
+	private int idUser=0;
 	private String nameUser;
 	private String lastName;
 	private String mail;
-	private Time birthDate;
-
+	private int birthYear;
+	
 	
 	/**
 	 * 
@@ -20,6 +22,7 @@ public class User {
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
+		idUser++;
 	}
 
 	/**
@@ -30,15 +33,17 @@ public class User {
 	 * @param mail
 	 * @param birthDate
 	 */
-	public User(int idUser, String nameUser, String lastName, String mail, Time birthDate) {
+	public User(int idUser, String nameUser, String lastName, String mail, int birthYear) {
 		super();
 		this.idUser = idUser;
 		this.nameUser = nameUser;
 		this.lastName = lastName;
 		this.mail = mail;
-		this.birthDate = birthDate;
+		this.birthYear = birthYear;
+		idUser++;
+		
 	}
-
+	
 	/**
 	 * 
 	 * @return an Id of an User
@@ -100,15 +105,15 @@ public class User {
 	/**
 	 * @return
 	 */
-	public Time getBirthDate() {
-		return birthDate;
+	public int getBirthYear() {
+		return birthYear;
 	}
 
 	/**
 	 * @param birthDate
 	 */
-	public void setBirthDate(Time birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthYear(int birthYear) {
+		this.birthYear = birthYear;
 	}
 
 	/* (non-Javadoc)
@@ -117,7 +122,16 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", lastName=" + lastName + ", mail=" + mail
-				+ ", birthDate=" + birthDate + "]";
+				+ ", birthYear=" + birthYear + "]";
+	}
+	public void createUser() {
+		setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
+		setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+		setMail(LecturaDatos.leerString("Introduce tu email:"));
+		setBirthYear(LecturaDatos.leerInt("Introduce tu año de nacimiento"));
+	}
+	public  void viewUser() {
+		
 	}
 
 }

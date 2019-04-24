@@ -1,28 +1,44 @@
 package data;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import connection.ConnectionBBDD;
 import model.User;
 
-public class DAOUsuario implements IDAO{
+public class DAOUsuario<T> implements IDAO<T>{
 
+	ConnectionBBDD connection = new ConnectionBBDD();
+	PreparedStatement miStatement;
+	
 	@Override
-	public User add() {
-		// TODO Auto-generated method stub
-		User user = new User();
+	public void add(T t) throws SQLException {
+		// TODO Auto-generated method stub	
+	User u = (User) t; 
+	
+	miStatement = connection.getConnection().prepareStatement("INSERT INTO USERS VALUES(?,?,?,?,?)");
+	miStatement.setInt(1, u.getIdUser());
+	miStatement.setString(2, u.getNameUser());
+	miStatement.setString(3, u.getLastName());
+	miStatement.setString(4, u.getMail());
+	miStatement.setInt(5, u.getBirthYear());
 		
-		return null;
 	}
 
 	@Override
-	public User drop() {
+	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public User alter() {
+	public void alter(T t) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
+
+	
+	
 
 
 }
