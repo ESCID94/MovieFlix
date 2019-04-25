@@ -5,16 +5,31 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import connection.ConnectionBBDD;
+import exceptions.DAOException;
 import model.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DAOUser.
+ *
+ * @param <T> the generic type
+ */
 public class DAOUser<T> implements IDAO<T> {
 
+	/** The connection. */
 	ConnectionBBDD connection = new ConnectionBBDD();
+	
+	/** The mi statement. */
 	PreparedStatement miStatement;
 
+	/* (non-Javadoc)
+	 * @see data.IDAO#add(java.lang.Object)
+	 */
 	@Override
 	public void add(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		
+		
 		try {
 			User u = (User) t;
 			miStatement = connection.getConnection().prepareStatement("INSERT INTO USERS VALUES(?,?,?,?,?)");
@@ -42,6 +57,9 @@ public class DAOUser<T> implements IDAO<T> {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see data.IDAO#drop(java.lang.Object)
+	 */
 	@Override
 	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
@@ -71,6 +89,9 @@ public class DAOUser<T> implements IDAO<T> {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see data.IDAO#alter(java.lang.Object)
+	 */
 	@Override
 	public void alter(T t) throws SQLException {
 		// TODO Auto-generated method stub

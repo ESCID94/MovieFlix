@@ -7,7 +7,19 @@ import java.sql.SQLException;
 import connection.ConnectionBBDD;
 import model.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Operations.
+ */
 public class Operations {
+	
+	/**
+	 * Exists.
+	 *
+	 * @param id the id
+	 * @param tab the tab
+	 * @return true, if successful
+	 */
 	public static boolean exists(int id, String tab) {
 		boolean exists = false;
 		ConnectionBBDD connection = new ConnectionBBDD();
@@ -32,7 +44,6 @@ public class Operations {
 				
 				while(result.next()) {
 					int count = result.getInt("TOTAL");
-					System.out.println(count);
 					
 				if  (count >= 1) {exists = true;}
 				else exists = false;

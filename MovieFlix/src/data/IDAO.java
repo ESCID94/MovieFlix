@@ -1,15 +1,15 @@
-package services;
+package data;
 
 import java.sql.SQLException;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface IServices.
+ * The Interface IDAO.
  *
  * @param <T> the generic type
  */
-public interface IServices  <T> {
-	
+public interface IDAO <T> {
+
 	/**
 	 * Adds the.
 	 *
