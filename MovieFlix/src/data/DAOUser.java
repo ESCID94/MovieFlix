@@ -1,6 +1,7 @@
 package data;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,9 @@ public class DAOUser<T> implements IDAO<T> {
 
 	/** The connection. */
 	ConnectionBBDD connection = new ConnectionBBDD();
+	
+	/** The ResultSet */
+	ResultSet result = null;
 	
 	/** The mi statement. */
 	PreparedStatement miStatement;
@@ -65,11 +69,10 @@ public class DAOUser<T> implements IDAO<T> {
 		// TODO Auto-generated method stub
 		try {
 			User u = (User) t;
-			miStatement = connection.getConnection().prepareStatement("DELETE FROM USERS WHERE IDUSER=?");
-			
-			
-			
-			
+			miStatement = connection.getConnection().prepareStatement("DELETE FROM users WHERE nameUser=? AND lastName=?");
+			miStatement.setString(1, u.getNameUser() );
+			miStatement.setString(2, u.getLastName() );
+			miStatement.executeUpdate();	
 			
 		}catch(SQLException e){
 			Logger lgr = Logger.getLogger(DAOUser.class.getName());
@@ -88,6 +91,7 @@ public class DAOUser<T> implements IDAO<T> {
 			}
 		}
 	}
+	
 
 	/* (non-Javadoc)
 	 * @see data.IDAO#alter(java.lang.Object)
@@ -97,6 +101,22 @@ public class DAOUser<T> implements IDAO<T> {
 		// TODO Auto-generated method stub
 
 	}
-
-
+	
+	public void listOfUsers (T t) {
+		User u = (User) t;
+		try {
+			miStatement = connection.getConnection().prepareStatement("SELECT  nameUser, lastName, mail, birthYear FROM users");
+			
+			System.out.println(miStatement);
+			
+			result = miStatement.executeQuery();
+			while(result.next()) {
+				System.out.println(result.getString("nameUser") + ", "+result.getString("lastName")+", "+result.getString("mail")+", "+result.getInt("birthYear")+"\n ");
+			}		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			Logger lgr = Logger.getLogger(DAOUser.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		}
+	}
 }
