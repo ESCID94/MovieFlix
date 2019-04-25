@@ -33,8 +33,8 @@ public class Operations {
 					miStatement.setInt(1, id);
 				}
 				
-				else if(tab.equals("peliculas")) {
-					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(idPelicula) AS TOTAL FROM users WHERE idPelicula=?");
+				else if(tab.equals("movies")) {
+					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(idMovie) AS TOTAL FROM movies WHERE idMovie=?");
 					miStatement.setInt(1, id);
 					
 				}

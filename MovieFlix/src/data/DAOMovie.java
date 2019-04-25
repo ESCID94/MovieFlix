@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 
 import connection.ConnectionBBDD;
+import model.Movie;
+
 
 
 /**
@@ -36,6 +38,34 @@ public class DAOMovie<T> implements IDAO<T> {
 	@Override
 	public void add(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
+		
+		try {
+			Movie m = (Movie) t;
+			myStatement = connection.getConnection().prepareStatement("INSERT INTO movies VALUES(?,?,?,?,0)");
+			myStatement.setInt(1, m.getIdMovie());
+			myStatement.setString(2, m.getName());
+			myStatement.setInt(3, m.getDate());
+			myStatement.setInt(4, m.getGenre().getOrdinal());
+			System.out.println(myStatement.toString());
+			myStatement.executeUpdate();
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DAOUser.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		} finally {
+			try {
+				if (myStatement != null) {
+					myStatement.close();
+				}
+				if (connection != null) {
+					connection.getConnection().close();
+				}
+			} catch (SQLException ex) {
+				Logger lgr = Logger.getLogger(DAOUser.class.getName());
+				lgr.log(Level.SEVERE, ex.getMessage(), ex);
+			}
+		}
 	}
 
 	@Override
@@ -88,4 +118,6 @@ public class DAOMovie<T> implements IDAO<T> {
        }
 }
 	}
+	
+	
 }

@@ -1,5 +1,7 @@
 package model;
 
+import utilities.LecturaDatos;
+import utilities.Operations;
 
 /**
  * The Class Movie
@@ -10,25 +12,49 @@ public class Movie {
 	public int idMovie=0;
 	private String name;
 	private int date;
-	public int idGenre=0;
+	public Genre genre;
 	public int numWatchers=0;
+	
 	
 	
 	public Movie() {
 		super();
 		// TODO Auto-generated constructor stub
+		this.createRandomIdMovie();
 	}
 
 
-	public Movie(int idMovie, String name, int date, int idGenre, int numWatchers) {
+	public Movie(int idMovie, String name, int date, int numWatchers) {
 		super();
 		this.idMovie = idMovie;
 		this.name = name;
 		this.date = date;
-		this.idGenre = idGenre;
+		this.numWatchers = numWatchers;
+		this.createRandomIdMovie();
+	}
+
+
+
+
+	public Movie(int idMovie, String name, int date, Genre genre, int numWatchers) {
+		super();
+		this.idMovie = idMovie;
+		this.name = name;
+		this.date = date;
+		this.genre = genre;
 		this.numWatchers = numWatchers;
 	}
 
+
+	/**
+	 * Creates the random id.
+	 */
+	public void createRandomIdMovie() {
+		// TODO Auto-generated method stub
+		this.idMovie = (int) (Math.random() * 1000 + 1);
+	}
+	
+	
 
 	public int getIdMovie() {
 		return idMovie;
@@ -60,15 +86,6 @@ public class Movie {
 	}
 
 
-	public int getIdGenre() {
-		return idGenre;
-	}
-
-
-	public void setIdGenre(int idGenre) {
-		this.idGenre = idGenre;
-	}
-
 
 	public int getNumWatchers() {
 		return numWatchers;
@@ -80,11 +97,43 @@ public class Movie {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Movie [idMovie=" + idMovie + ", name=" + name + ", date=" + date + ", idGenre=" + idGenre
-				+ ", numWatchers=" + numWatchers + "]";
+	
+	public Genre getGenre() {
+		return genre;
 	}
 
-	
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Movie [idMovie=" + idMovie + ", name=" + name + ", date=" + date + ", genre=" + genre + ", numWatchers="
+				+ numWatchers + "]";
+	}
+
+
+	/**
+	 * Creates the movie.
+	 */
+	public void createMovie() {
+		
+		if (!Operations.exists(this.idMovie, "movies")) {
+
+			this.setName(LecturaDatos.leerString("Introduce el nombre de la película:"));
+			this.setDate(LecturaDatos.leerInt("Introduce el año de la película"));
+			int genre = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoria:"));
+			//Meter excepcion GenreException
+			if (genre == -1) {
+				System.out.println("Categoria erronea");
+			}
+			else this.setGenre(Genre.whichGenre(genre));
+			
+		} else {
+			System.out.println("Movie" + this.idMovie + " ya existe");
+		}
+	}
+
 }

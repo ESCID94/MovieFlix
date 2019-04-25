@@ -205,7 +205,7 @@ public class User {
 		} else {
 			System.out.println("Este nombre: " + this.nameUser + " no existe");
 
-	}
+		}
 	}
 
 
