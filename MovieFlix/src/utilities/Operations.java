@@ -7,7 +7,19 @@ import java.sql.SQLException;
 import connection.ConnectionBBDD;
 import model.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Operations.
+ */
 public class Operations {
+	
+	/**
+	 * Exists.
+	 *
+	 * @param id the id
+	 * @param tab the tab
+	 * @return true, if successful
+	 */
 	public static boolean exists(int id, String tab) {
 		boolean exists = false;
 		ConnectionBBDD connection = new ConnectionBBDD();
@@ -21,8 +33,8 @@ public class Operations {
 					miStatement.setInt(1, id);
 				}
 				
-				else if(tab.equals("peliculas")) {
-					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(idPelicula) AS TOTAL FROM users WHERE idPelicula=?");
+				else if(tab.equals("movies")) {
+					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(idMovie) AS TOTAL FROM movies WHERE idMovie=?");
 					miStatement.setInt(1, id);
 					
 				}
@@ -32,7 +44,45 @@ public class Operations {
 				
 				while(result.next()) {
 					int count = result.getInt("TOTAL");
-					System.out.println(count);
+
+					
+				if  (count >= 1) {exists = true;}
+				else exists = false;
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return exists;
+
+		
+	}
+	
+	public static boolean exists(String name) {
+		boolean exists = false;
+		ConnectionBBDD connection = new ConnectionBBDD();
+		PreparedStatement miStatement = null;
+		
+			
+			try {
+				
+			
+					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(nameUser) AS TOTAL FROM users WHERE nameUser=?");
+					miStatement.setString(1, name);
+					
+				
+				
+				
+				//Add for all tables with ids
+				
+				ResultSet result = miStatement.executeQuery();
+				
+				while(result.next()) {
+					int count = result.getInt("TOTAL");
+
 					
 				if  (count >= 1) {exists = true;}
 				else exists = false;

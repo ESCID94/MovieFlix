@@ -5,10 +5,20 @@ import services.IServices;
 import services.ServicesUser;
 import utilities.LecturaDatos;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ControlMenu.
+ *
+ * @param <T> the generic type
+ */
 public class ControlMenu<T> {
 	
+	/** The services. */
 	IServices <T> services = new ServicesUser<T>();
 
+    /**
+     * Open menu.
+     */
     public void openMenu() {
         boolean contin = true;
         do {
@@ -18,6 +28,11 @@ public class ControlMenu<T> {
         System.out.println("   --- Adiós muy buenas ---");
     }
 
+    /**
+     * Option selection.
+     *
+     * @return true, if successful
+     */
     public boolean optionSelection() {
 
         boolean contin = true;
@@ -80,6 +95,12 @@ public class ControlMenu<T> {
         return contin;
     }
 
+    /**
+     * Salir.
+     *
+     * @return true, if successful
+     * @throws Exception the exception
+     */
     private boolean salir() throws Exception {
         String sino = LecturaDatos.leerString("   ¿Está seguro?(S/N)");
         return (sino.toUpperCase().charAt(0) != 'S');

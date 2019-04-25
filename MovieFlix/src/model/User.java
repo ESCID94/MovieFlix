@@ -6,20 +6,31 @@ import java.util.Random;
 import utilities.LecturaDatos;
 import utilities.Operations;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Kike
+ * The Class User.
  *
+ * @author Kike
  */
 public class User {
-	public int idUser=0;
+
+	/** The id user. */
+	public int idUser = 0;
+
+	/** The name user. */
 	private String nameUser;
+
+	/** The last name. */
 	private String lastName;
+
+	/** The mail. */
 	private String mail;
+
+	/** The birth year. */
 	private int birthYear;
-	
-	
+
 	/**
-	 * 
+	 * Instantiates a new user.
 	 */
 	public User() {
 		super();
@@ -27,15 +38,14 @@ public class User {
 		createRandomId();
 	}
 
-	
-
 	/**
-	 * 
-	 * @param idUser
-	 * @param nameUser
-	 * @param lastName
-	 * @param mail
-	 * @param birthDate
+	 * Instantiates a new user.
+	 *
+	 * @param idUser    the id user
+	 * @param nameUser  the name user
+	 * @param lastName  the last name
+	 * @param mail      the mail
+	 * @param birthYear the birth year
 	 */
 	public User(int idUser, String nameUser, String lastName, String mail, int birthYear) {
 		super();
@@ -45,15 +55,19 @@ public class User {
 		this.mail = mail;
 		this.birthYear = birthYear;
 		createRandomId();
-		
+
 	}
+	/**
+	 * Creates the random id.
+	 */
 	private void createRandomId() {
 		// TODO Auto-generated method stub
-		this.idUser = (int)(Math.random() * 1000 + 1);	
+		this.idUser = (int) (Math.random() * 1000 + 1);
 	}
-	
+
 	/**
-	 * 
+	 * Gets the id user.
+	 *
 	 * @return an Id of an User
 	 */
 	public int getIdUser() {
@@ -61,70 +75,89 @@ public class User {
 	}
 
 	/**
-	 * 
-	 * @param idUser
+	 * Sets the id user.
+	 *
+	 * @param idUser the new id user
 	 */
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
 
 	/**
-	 * @return
+	 * Gets the name user.
+	 *
+	 * @return the name user
 	 */
 	public String getNameUser() {
 		return nameUser;
 	}
 
 	/**
-	 * @param nameUser
+	 * Sets the name user.
+	 *
+	 * @param nameUser the new name user
 	 */
 	public void setNameUser(String nameUser) {
 		this.nameUser = nameUser;
 	}
 
 	/**
-	 * @return
+	 * Gets the last name.
+	 *
+	 * @return the last name
 	 */
 	public String getLastName() {
 		return lastName;
 	}
 
 	/**
-	 * @param lastName
+	 * Sets the last name.
+	 *
+	 * @param lastName the new last name
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
 	/**
-	 * @return
+	 * Gets the mail.
+	 *
+	 * @return the mail
 	 */
 	public String getMail() {
 		return mail;
 	}
 
 	/**
-	 * @param mail
+	 * Sets the mail.
+	 *
+	 * @param mail the new mail
 	 */
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
 	/**
-	 * @return
+	 * Gets the birth year.
+	 *
+	 * @return the birth year
 	 */
 	public int getBirthYear() {
 		return birthYear;
 	}
 
 	/**
-	 * @param birthDate
+	 * Sets the birth year.
+	 *
+	 * @param birthYear the new birth year
 	 */
 	public void setBirthYear(int birthYear) {
 		this.birthYear = birthYear;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -132,20 +165,55 @@ public class User {
 		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", lastName=" + lastName + ", mail=" + mail
 				+ ", birthYear=" + birthYear + "]";
 	}
+
+	/**
+	 * Creates the user.
+	 */
 	public void createUser() {
-		this.idUser=482;
-		if (!Operations.exists(this.idUser,"users")) {
-			
-		setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
-		setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
-		setMail(LecturaDatos.leerString("Introduce tu email:"));
-		setBirthYear(LecturaDatos.leerInt("Introduce tu año de nacimiento"));
-		}
-		else System.out.println("Usuario" + this.idUser +" ya existe");
-			
+
+		if (!Operations.exists(this.idUser, "users")) {
+
+			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
+			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+			setMail(LecturaDatos.leerString("Introduce tu email:"));
+			setBirthYear(LecturaDatos.leerInt("Introduce tu aÃ±o de nacimiento"));
+		} else
+			System.out.println("Usuario" + this.idUser + " ya existe");
 	}
-	public  void viewUser() {
+
+	public void deleteAccount() {
+		try {
+			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
+			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getLocalizedMessage());
+		}
+
+	}
+
+	/**
+	 * Modifies the user
+	 */
+	public void modifyUser(User u) {
+
 		
+		if (Operations.exists(u.getNameUser())) {
+
+			u.setNameUser(LecturaDatos.leerString("Introduce tu nuevo nombre:"));
+			u.setLastName(LecturaDatos.leerString("Introduce tu nuevo apellido:"));
+			
+		} else {
+			System.out.println("Este nombre: " + this.nameUser + " no existe");
+
+		}
+	}
+
+
+	/**
+	 * View user.
+	 */
+	public void viewUser() {
+
 	}
 
 }
