@@ -82,6 +82,30 @@ public class TestUser {
 		DAOUser<T> dao = new DAOUser<T>();
 		dao.add((T) u);
 	}
+	@Test
+	public <T> void testDropUser() throws SQLException {
+		User u = new User();
+		u.deleteAccount();
+		DAOUser<T> dao = new DAOUser<T>();
+		dao.drop((T) u);
+	}
+	
+	@Test
+	public <T> void ListUsers() throws SQLException {
+		User u = new User();
+		DAOUser<T> dao = new DAOUser<T>();
+		dao.listOfUsers((T) u);
+	}
+	
+	
+	
+	@Test
+	public <T> void testUpdateUser() throws SQLException {
+		User u = new User(579, "pepe", "pepes", "a", 1993);	
+		DAOUser<T> dao = new DAOUser<T>();
+		dao.update((T) u);
+		
+	}
 	
 	
 	

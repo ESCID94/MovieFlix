@@ -13,23 +13,22 @@ import utilities.Operations;
  * @author Kike
  */
 public class User {
-	
+
 	/** The id user. */
-	public int idUser=0;
-	
+	public int idUser = 0;
+
 	/** The name user. */
 	private String nameUser;
-	
+
 	/** The last name. */
 	private String lastName;
-	
+
 	/** The mail. */
 	private String mail;
-	
+
 	/** The birth year. */
 	private int birthYear;
-	
-	
+
 	/**
 	 * Instantiates a new user.
 	 */
@@ -39,15 +38,13 @@ public class User {
 		createRandomId();
 	}
 
-	
-
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param idUser the id user
-	 * @param nameUser the name user
-	 * @param lastName the last name
-	 * @param mail the mail
+	 * @param idUser    the id user
+	 * @param nameUser  the name user
+	 * @param lastName  the last name
+	 * @param mail      the mail
 	 * @param birthYear the birth year
 	 */
 	public User(int idUser, String nameUser, String lastName, String mail, int birthYear) {
@@ -58,17 +55,16 @@ public class User {
 		this.mail = mail;
 		this.birthYear = birthYear;
 		createRandomId();
-		
+
 	}
-	
 	/**
 	 * Creates the random id.
 	 */
 	private void createRandomId() {
 		// TODO Auto-generated method stub
-		this.idUser = (int)(Math.random() * 1000 + 1);	
+		this.idUser = (int) (Math.random() * 1000 + 1);
 	}
-	
+
 	/**
 	 * Gets the id user.
 	 *
@@ -159,7 +155,9 @@ public class User {
 		this.birthYear = birthYear;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -167,28 +165,55 @@ public class User {
 		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", lastName=" + lastName + ", mail=" + mail
 				+ ", birthYear=" + birthYear + "]";
 	}
-	
+
 	/**
 	 * Creates the user.
 	 */
 	public void createUser() {
-		this.idUser=482;
-		if (!Operations.exists(this.idUser,"users")) {
-			
-		setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
-		setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
-		setMail(LecturaDatos.leerString("Introduce tu email:"));
-		setBirthYear(LecturaDatos.leerInt("Introduce tu año de nacimiento"));
-		}
-		else System.out.println("Usuario" + this.idUser +" ya existe");
-			
+
+		if (!Operations.exists(this.idUser, "users")) {
+
+			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
+			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+			setMail(LecturaDatos.leerString("Introduce tu email:"));
+			setBirthYear(LecturaDatos.leerInt("Introduce tu aÃ±o de nacimiento"));
+		} else
+			System.out.println("Usuario" + this.idUser + " ya existe");
 	}
-	
+
+	public void deleteAccount() {
+		try {
+			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
+			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getLocalizedMessage());
+		}
+
+	}
+
+	/**
+	 * Modifies the user
+	 */
+	public void modifyUser(User u) {
+
+		
+		if (Operations.exists(u.getNameUser())) {
+
+			u.setNameUser(LecturaDatos.leerString("Introduce tu nuevo nombre:"));
+			u.setLastName(LecturaDatos.leerString("Introduce tu nuevo apellido:"));
+			
+		} else {
+			System.out.println("Este nombre: " + this.nameUser + " no existe");
+
+	}
+	}
+
+
 	/**
 	 * View user.
 	 */
-	public  void viewUser() {
-		
+	public void viewUser() {
+
 	}
 
 }
