@@ -1,13 +1,9 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,13 +13,10 @@ import org.junit.Test;
 
 import connection.ConnectionBBDD;
 import data.DAOMovie;
-import data.DAOUser;
+import model.Genre;
 import model.Movie;
-import model.User;
 
-
-public class TestUser {
-
+public class TestMovie {
 	private static Logger logger;
 
 	// Inicializo
@@ -77,41 +70,20 @@ public class TestUser {
 	
 	}
 	
-	@Test
-	public <T> void testAddUser() throws SQLException {
-		User u = new User();
-		u.createUser();
-		DAOUser<T> dao = new DAOUser<T>();
-		dao.add((T) u);
-	}
-	@Test
-	public <T> void testDropUser() throws SQLException {
-		User u = new User();
-		u.deleteAccount();
-		DAOUser<T> dao = new DAOUser<T>();
-		dao.drop((T) u);
-	}
 	
 	@Test
-	public <T> void ListUsers() throws SQLException {
-		User u = new User();
-		DAOUser<T> dao = new DAOUser<T>();
-		dao.listOfUsers((T) u);
-	}
-	
-	
+	public <T> void testAddMovie() throws SQLException {
+		Movie m = new Movie();
+		m.createMovie();
+		DAOMovie<T> dao = new DAOMovie<T>();
+		dao.add((T) m);
+	}//completar 
 	
 	@Test
-	public <T> void testUpdateUser() throws SQLException {
-		User u = new User(579, "pepe", "pepes", "a", 1993);	
-		DAOUser<T> dao = new DAOUser<T>();
-		dao.update((T) u);
+	public void testGenre() {
+		Movie movie = new Movie();
+		String nombre = "POLICIACA";
+		Genre.exists(nombre);
 		
 	}
-	
-	
-	
-	
-	
-	
 }
