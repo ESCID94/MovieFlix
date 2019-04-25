@@ -45,7 +45,7 @@ public class DAOMovie<T> implements IDAO<T> {
 	}
 
 	@Override
-	public void alter(T t) throws SQLException {
+	public void update(T t) throws SQLException {
 		// TODO Auto-generated method stub
 
 	}

@@ -40,7 +40,7 @@ public class ServicesUser<T> implements IServices<T> {
 	public void alter(T t) throws SQLException {
 		// TODO Auto-generated method stub
 		DAOUser<T> daou= new DAOUser<T>();
-		daou.alter(t);
+		daou.update(t);
 		
 	}
 
