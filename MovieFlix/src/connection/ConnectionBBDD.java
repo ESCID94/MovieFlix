@@ -18,7 +18,9 @@ public class ConnectionBBDD {
 	private Connection connection = null;
 	
 	/** The url. */
+
 	private String url = "jdbc:mysql://10.90.36.110:3306/movieflix?autoReconnect=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
 	
 	/** The user. */
 	private String user = "root"; 

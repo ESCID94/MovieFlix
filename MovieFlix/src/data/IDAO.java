@@ -32,5 +32,7 @@ public interface IDAO <T> {
 	 * @param t the t
 	 * @throws SQLException the SQL exception
 	 */
+
 	public void update(T t) throws SQLException;
+
 }

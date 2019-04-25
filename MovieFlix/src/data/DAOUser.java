@@ -17,10 +17,9 @@ import model.User;
  */
 public class DAOUser<T> implements IDAO<T> {
 
-	
-	
 	/** The ResultSet */
 	ResultSet result = null;
+
 	
 	/** The mi statement. */
 	PreparedStatement miStatement;

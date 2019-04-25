@@ -44,6 +44,7 @@ public class Operations {
 				
 				while(result.next()) {
 					int count = result.getInt("TOTAL");
+
 					
 				if  (count >= 1) {exists = true;}
 				else exists = false;
@@ -81,6 +82,7 @@ public class Operations {
 				
 				while(result.next()) {
 					int count = result.getInt("TOTAL");
+
 					
 				if  (count >= 1) {exists = true;}
 				else exists = false;

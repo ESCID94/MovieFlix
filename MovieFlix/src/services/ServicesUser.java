@@ -2,6 +2,9 @@ package services;
 
 import java.sql.SQLException;
 
+
+import data.DAOUser;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class ServicesUser.
@@ -25,6 +28,8 @@ public class ServicesUser<T> implements IServices<T> {
 	@Override
 	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		DAOUser<T> daou= new DAOUser<T>();
+		daou.drop(t);
 		
 	}
 
@@ -34,6 +39,8 @@ public class ServicesUser<T> implements IServices<T> {
 	@Override
 	public void alter(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		DAOUser<T> daou= new DAOUser<T>();
+		daou.alter(t);
 		
 	}
 

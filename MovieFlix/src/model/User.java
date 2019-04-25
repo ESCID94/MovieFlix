@@ -57,7 +57,6 @@ public class User {
 		createRandomId();
 
 	}
-
 	/**
 	 * Creates the random id.
 	 */
@@ -196,7 +195,7 @@ public class User {
 	 * Modifies the user
 	 */
 	public void modifyUser(User u) {
-	
+
 		
 		if (Operations.exists(u.getNameUser())) {
 
