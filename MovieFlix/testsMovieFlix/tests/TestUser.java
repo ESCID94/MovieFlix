@@ -99,6 +99,14 @@ public class TestUser {
 	
 	
 	
+	@Test
+	public <T> void testUpdateUser() throws SQLException {
+		User u = new User(579, "pepe", "pepes", "a", 1993);	
+		DAOUser<T> dao = new DAOUser<T>();
+		dao.update((T) u);
+		
+	}
+	
 	
 	
 	

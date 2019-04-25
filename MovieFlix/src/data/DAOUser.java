@@ -17,8 +17,7 @@ import model.User;
  */
 public class DAOUser<T> implements IDAO<T> {
 
-	/** The connection. */
-	ConnectionBBDD connection = new ConnectionBBDD();
+	
 	
 	/** The ResultSet */
 	ResultSet result = null;
@@ -32,7 +31,8 @@ public class DAOUser<T> implements IDAO<T> {
 	@Override
 	public void add(T t) throws SQLException {
 		// TODO Auto-generated method stub
-		
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
 		
 		try {
 			User u = (User) t;
@@ -67,12 +67,18 @@ public class DAOUser<T> implements IDAO<T> {
 	@Override
 	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
+		
 		try {
 			User u = (User) t;
+
 			miStatement = connection.getConnection().prepareStatement("DELETE FROM users WHERE nameUser=? AND lastName=?");
 			miStatement.setString(1, u.getNameUser() );
 			miStatement.setString(2, u.getLastName() );
 			miStatement.executeUpdate();	
+
 			
 		}catch(SQLException e){
 			Logger lgr = Logger.getLogger(DAOUser.class.getName());
@@ -97,8 +103,43 @@ public class DAOUser<T> implements IDAO<T> {
 	 * @see data.IDAO#alter(java.lang.Object)
 	 */
 	@Override
-	public void alter(T t) throws SQLException {
+	public void update(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
+		
+		try {
+			User u = (User) t;
+			
+			String nameAux = u.getNameUser();
+			
+			u.modifyUser(u);
+			
+			miStatement = connection.getConnection().prepareStatement("UPDATE USERS SET NAMEUSER=?,LASTNAME=? WHERE NAMEUSER=?");
+		
+			miStatement.setString(1, u.getNameUser());
+			miStatement.setString(2, u.getLastName());
+			miStatement.setString(3, nameAux);
+			System.out.println(miStatement.toString());
+			
+			miStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DAOUser.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		} finally {
+			try {
+				if (miStatement != null) {
+					miStatement.close();
+				}
+				if (connection != null) {		
+					connection.getConnection().close();
+				}
+			} catch (SQLException ex) {
+				Logger lgr = Logger.getLogger(DAOUser.class.getName());
+				lgr.log(Level.SEVERE, ex.getMessage(), ex);
+			}
+		}
 
 	}
 	
