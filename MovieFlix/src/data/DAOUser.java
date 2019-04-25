@@ -143,6 +143,9 @@ public class DAOUser<T> implements IDAO<T> {
 	}
 	
 	public void listOfUsers (T t) {
+		// TODO Auto-generated method stub
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
 		User u = (User) t;
 		try {
 			miStatement = connection.getConnection().prepareStatement("SELECT  nameUser, lastName, mail, birthYear FROM users");
