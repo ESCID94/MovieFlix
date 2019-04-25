@@ -1,24 +1,27 @@
 package control;
 
+import java.sql.SQLException;
+
 import model.User;
 
 public class ControlUser implements IControl<User> {
-	IControl data = new ControlUser();
+
 	@Override
-	public Object add() {
+	public void add(User t) throws SQLException {
 		// TODO Auto-generated method stub
-		return data.add();
+		
 	}
 
 	@Override
-	public Object drop() {
+	public void drop(User t) throws SQLException {
 		// TODO Auto-generated method stub
-		return data.drop();
+		
 	}
 
 	@Override
-	public Object alter() {
+	public void alter(User t) throws SQLException {
 		// TODO Auto-generated method stub
-		 return data.add();
+		
 	}
+	
 }

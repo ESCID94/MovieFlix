@@ -45,7 +45,30 @@ public class DAOUser<T> implements IDAO<T> {
 	@Override
 	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
-
+		try {
+			User u = (User) t;
+			miStatement = connection.getConnection().prepareStatement("DELETE FROM USERS WHERE IDUSER=?");
+			
+			
+			
+			
+			
+		}catch(SQLException e){
+			Logger lgr = Logger.getLogger(DAOUser.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		}finally {
+			try {
+				if (miStatement != null) {
+					miStatement.close();
+				}
+				if (connection != null) {
+					connection.getConnection().close();
+				}
+			} catch (SQLException ex) {
+				Logger lgr = Logger.getLogger(DAOUser.class.getName());
+				lgr.log(Level.SEVERE, ex.getMessage(), ex);
+			}
+		}
 	}
 
 	@Override
@@ -53,5 +76,6 @@ public class DAOUser<T> implements IDAO<T> {
 		// TODO Auto-generated method stub
 
 	}
+
 
 }
