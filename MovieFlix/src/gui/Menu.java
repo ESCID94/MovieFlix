@@ -1,7 +1,14 @@
 package gui;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Menu.
+ */
 public class Menu {
 	
+	/**
+	 * Show menu.
+	 */
 	public static void showMenu() {
         System.out.println(" ");
         System.out.println(" BIENVENIDO A MOVIEFLIX");
