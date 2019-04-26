@@ -38,6 +38,12 @@ public class Operations {
 					miStatement.setInt(1, id);
 					
 				}
+				
+				else if(tab.equals("subscription")) {
+					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(idSubscription) AS TOTAL FROM subscription WHERE idSubscription=?");
+					miStatement.setInt(1, id);
+					
+				}
 				//Add for all tables with ids
 				
 				ResultSet result = miStatement.executeQuery();
@@ -96,6 +102,7 @@ public class Operations {
 			
 			return exists;
 
-		
-	}
+		}
+	
+	
 }

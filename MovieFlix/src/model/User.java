@@ -28,6 +28,26 @@ public class User {
 
 	/** The birth year. */
 	private int birthYear;
+	
+	private Subscription sub;
+	
+	public User(int idUser, String nameUser, String lastName, String mail, int birthYear, Subscription sub) {
+		super();
+		this.idUser = idUser;
+		this.nameUser = nameUser;
+		this.lastName = lastName;
+		this.mail = mail;
+		this.birthYear = birthYear;
+		this.sub = sub;
+	}
+
+	public Subscription getSub() {
+		return sub;
+	}
+
+	public void setSub(Subscription sub) {
+		this.sub = sub;
+	}
 
 	/**
 	 * Instantiates a new user.
@@ -155,15 +175,10 @@ public class User {
 		this.birthYear = birthYear;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", lastName=" + lastName + ", mail=" + mail
-				+ ", birthYear=" + birthYear + "]";
+				+ ", birthYear=" + birthYear + ", sub=" + sub + "]";
 	}
 
 	/**
@@ -207,7 +222,31 @@ public class User {
 
 		}
 	}
+	
+	public void deleteSubscription(User u) {
+		
+		if (Operations.exists(u.getNameUser())) {
 
+			this.setNameUser(LecturaDatos.leerString("Introduce el nombre de usuario: "));
+			this.setLastName(LecturaDatos.leerString("Introduce el apellido: "));
+			}
+		else System.out.println("No tienes una subscripcion");
+		
+	
+	}
+	
+public void modifySubscription(User u) {
+		
+		if (Operations.exists(u.getNameUser())) {
+
+			this.setNameUser(LecturaDatos.leerString("Introduce el nombre de usuario: "));
+			this.setLastName(LecturaDatos.leerString("Introduce el apellido: "));
+			}
+		else System.out.println("No tienes una subscripcion");
+		
+	
+	}
+	
 
 	/**
 	 * View user.
