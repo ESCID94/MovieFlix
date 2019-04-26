@@ -108,11 +108,22 @@ public class TestMovie {
 	}
 	
 	@Test
-	public <T> void testAddMoviesFromFile() throws SQLException {
+	public <T> void testAddMoviesFromFileWithCat() throws SQLException {
 	
-		File file = new File("C:/Users/admin/Documents/Workspace/MovieFlix/src/peliculas_cat.txt");		
+		File file = new File("ficheros/peliculas_cat.txt");		
 		DAOMovie<T> dao = new DAOMovie<T>();	
 		dao.addMoviesBBDD(file);
+		
+		
+	}
+	
+	@Test
+	public <T> void testAddMoviesFromFileWithnumCat() throws SQLException {
+	
+		File file = new File("ficheros/peliculas_numCat.txt");		
+		DAOMovie<T> dao = new DAOMovie<T>();	
+		dao.addMoviesBBDD(file);
+		
 		
 	}
 	

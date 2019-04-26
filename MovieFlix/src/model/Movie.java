@@ -123,8 +123,8 @@ public class Movie {
 		
 		if (!Operations.exists(this.idMovie, "movies")) {
 
-			this.setName(ReadData.leerString("Introduce el nombre de la pelï¿½cula:"));
-			this.setDate(ReadData.leerInt("Introduce el aï¿½o de la pelï¿½cula"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
+			this.setDate(ReadData.leerInt("Introduce el año de la pelicula"));
 			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {
@@ -143,7 +143,7 @@ public class Movie {
 	public void deleteMovie() {
 		try {
 			
-			this.setName(ReadData.leerString("Introduce el nombre de la pelï¿½cula:"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
 			
 
 		} catch (Exception e) {
@@ -159,8 +159,8 @@ public class Movie {
 
 		
 		if (Operations.existMovie(m.getName())) {
-			this.setName(ReadData.leerString("Introduce el nombre de la pelï¿½cula:"));
-			this.setDate(ReadData.leerInt("Introduce el aï¿½o de la pelï¿½cula"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
+			this.setDate(ReadData.leerInt("Introduce el año de la pelicula"));
 			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {

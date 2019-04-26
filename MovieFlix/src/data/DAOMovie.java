@@ -181,7 +181,11 @@ public class DAOMovie<T> implements IDAO<T> {
 	
 	public void addMoviesBBDD(File file) throws SQLException{
 		
-		ReadFile.extractMovies(file);
+		if (ReadData.leerString("Introduce si el fichero es por categorias de (nombre) o (numero))").equals("nombre")){
+			ReadFile.extractMoviesByCat(file);
+		} 
+		else ReadFile.extractMoviesByNumCat(file);
+		
 		
 	}
 	
