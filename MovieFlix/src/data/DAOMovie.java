@@ -49,7 +49,7 @@ public class DAOMovie<T> implements IDAO<T> {
 			System.out.println(myStatement.toString());
 			myStatement.executeUpdate();
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(DAOUser.class.getName());
+			Logger lgr = Logger.getLogger(DAOMovie.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		} finally {
 			try {
@@ -60,7 +60,7 @@ public class DAOMovie<T> implements IDAO<T> {
 					connection.getConnection().close();
 				}
 			} catch (SQLException ex) {
-				Logger lgr = Logger.getLogger(DAOUser.class.getName());
+				Logger lgr = Logger.getLogger(DAOMovie.class.getName());
 				lgr.log(Level.SEVERE, ex.getMessage(), ex);
 			}
 		}
@@ -69,13 +69,72 @@ public class DAOMovie<T> implements IDAO<T> {
 	@Override
 	public void drop(T t) throws SQLException {
 		// TODO Auto-generated method stub
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
 
+		try {
+			Movie m = (Movie) t;
+
+			myStatement = connection.getConnection().prepareStatement("DELETE FROM movies WHERE name=?");
+			myStatement.setString(1, m.getName());
+			myStatement.executeUpdate();
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DAOMovie.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		} finally {
+			try {
+				if (myStatement != null) {
+					myStatement.close();
+				}
+				if (connection != null) {
+					connection.getConnection().close();
+				}
+			} catch (SQLException ex) {
+				Logger lgr = Logger.getLogger(DAOMovie.class.getName());
+				lgr.log(Level.SEVERE, ex.getMessage(), ex);
+			}
+		}
 	}
 
 	@Override
 	public void update(T t) throws SQLException {
 		// TODO Auto-generated method stub
-
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
+		
+		try {
+			Movie m = (Movie) t;
+			
+			String nameAux = m.getName();
+			
+			m.modifyUser(m);;
+			
+			myStatement = connection.getConnection().prepareStatement("UPDATE MOVIES SET name=?,date=?,idGenre=? WHERE NAME=?");
+		
+			myStatement.setString(1, m.getName());
+			myStatement.setInt(2, m.getDate());
+			myStatement.setInt(3, m.getGenre().getOrdinal());
+			myStatement.setString(4, nameAux);
+			System.out.println(myStatement.toString());
+			
+			myStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DAOMovie.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+		} finally {
+			try {
+				if (myStatement != null) {
+					myStatement.close();
+				}
+				if (connection != null) {		
+					connection.getConnection().close();
+				}
+			} catch (SQLException ex) {
+				Logger lgr = Logger.getLogger(DAOMovie.class.getName());
+				lgr.log(Level.SEVERE, ex.getMessage(), ex);
+			}
+		}
 	}
 
 	public void listOfMovies(T t) {

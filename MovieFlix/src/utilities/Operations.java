@@ -98,4 +98,41 @@ public class Operations {
 
 		
 	}
+	public static boolean existMovie(String name) {
+		boolean exists = false;
+		ConnectionBBDD connection = new ConnectionBBDD();
+		PreparedStatement miStatement = null;
+		
+			
+			try {
+				
+			
+					miStatement = connection.getConnection().prepareStatement("SELECT COUNT(name) AS TOTAL FROM movies WHERE name=?");
+					miStatement.setString(1, name);
+					
+				
+				
+				
+				//Add for all tables with ids
+				
+				ResultSet result = miStatement.executeQuery();
+				
+				while(result.next()) {
+					int count = result.getInt("TOTAL");
+
+					
+				if  (count >= 1) {exists = true;}
+				else exists = false;
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return exists;
+
+		
+	}
 }
