@@ -39,7 +39,7 @@ public class DAOCatalog<T> implements IDAO<T> {
 	public void add(T t) throws SQLException {
 		// TODO Auto-generated method stub
 		ConnectionBBDD connection = new ConnectionBBDD();
-
+		
 		try {
 			Catalog cat = (Catalog) t;
 			// Hace falta el idUser para esta sentencia:
@@ -109,7 +109,7 @@ public class DAOCatalog<T> implements IDAO<T> {
 
 			// String idAux = cat.getIdGenre(); Aun no esta hecho.
 
-			// cat.modifyIdGenre(cat); Aun no está hecha la funcion modifyIdGenre
+			// cat.modifyIdGenre(cat); Aun no estï¿½ hecha la funcion modifyIdGenre
 
 			myStatement = connection.getConnection()
 					.prepareStatement("UPDATE CATALOG SET idSubscription=? WHERE idGenre=?");
@@ -142,9 +142,9 @@ public class DAOCatalog<T> implements IDAO<T> {
 	public void listOfCategory(T t) {
 		ConnectionBBDD connection = new ConnectionBBDD();
 		try {
-			int categoryUser = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoría:"));
+			int categoryUser = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categorï¿½a:"));
 			if (categoryUser == -1) {
-				System.out.println("Categoría erronea.");
+				System.out.println("Categorï¿½a erronea.");
 			} else {
 
 				myStatement = connection.getConnection()

@@ -3,7 +3,7 @@ package control;
 import gui.Menu;
 import services.IServices;
 import services.ServicesUser;
-import utilities.LecturaDatos;
+import utilities.ReadData;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -38,7 +38,7 @@ public class ControlMenu<T> {
         boolean contin = true;
 
         try {
-            switch (LecturaDatos.leerInt()) {
+            switch (ReadData.leerInt()) {
                 case 1:
                     //ALTA DE UN USUARIO
                     services.add(null);
@@ -102,7 +102,7 @@ public class ControlMenu<T> {
      * @throws Exception the exception
      */
     private boolean salir() throws Exception {
-        String sino = LecturaDatos.leerString("   ¿Está seguro?(S/N)");
+        String sino = ReadData.leerString("   ¿Está seguro?(S/N)");
         return (sino.toUpperCase().charAt(0) != 'S');
     }
 
