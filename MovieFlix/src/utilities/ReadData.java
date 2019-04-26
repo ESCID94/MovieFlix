@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author Antonio
  */
-public class LecturaDatos {
+public class ReadData {
 
     /**
      * Leer string.

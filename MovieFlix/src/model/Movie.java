@@ -1,6 +1,6 @@
 package model;
 
-import utilities.LecturaDatos;
+import utilities.ReadData;
 import utilities.Operations;
 
 /**
@@ -24,9 +24,8 @@ public class Movie {
 	}
 
 
-	public Movie(int idMovie, String name, int date, int numWatchers) {
+	public Movie(String name, int date, int numWatchers) {
 		super();
-		this.idMovie = idMovie;
 		this.name = name;
 		this.date = date;
 		this.numWatchers = numWatchers;
@@ -36,13 +35,13 @@ public class Movie {
 
 
 
-	public Movie(int idMovie, String name, int date, Genre genre, int numWatchers) {
+	public Movie(String name, int date, Genre genre, int numWatchers) {
 		super();
-		this.idMovie = idMovie;
 		this.name = name;
 		this.date = date;
 		this.genre = genre;
 		this.numWatchers = numWatchers;
+		this.createRandomIdMovie();
 	}
 
 
@@ -51,7 +50,9 @@ public class Movie {
 	 */
 	public void createRandomIdMovie() {
 		// TODO Auto-generated method stub
-		this.idMovie = (int) (Math.random() * 1000 + 1);
+		
+		while (Operations.exists(this.idMovie, "movies")) this.idMovie = (int) (Math.random() * 1000 + 1);
+		
 	}
 	
 	
@@ -122,9 +123,9 @@ public class Movie {
 		
 		if (!Operations.exists(this.idMovie, "movies")) {
 
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la película:"));
-			this.setDate(LecturaDatos.leerInt("Introduce el año de la película"));
-			int genre = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoria:"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
+			this.setDate(ReadData.leerInt("Introduce el año de la pelicula"));
+			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {
 				System.out.println("Categoria erronea");
@@ -135,5 +136,44 @@ public class Movie {
 			System.out.println("Movie" + this.idMovie + " ya existe");
 		}
 	}
+	
+	/**
+	 * delete the movie.
+	 */
+	public void deleteMovie() {
+		try {
+			
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
+			
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getLocalizedMessage());
+		}
+
+	}
+	
+	/**
+	 * Modifies the user
+	 */
+	public void modifyUser(Movie m) {
+
+		
+		if (Operations.existMovie(m.getName())) {
+			this.setName(ReadData.leerString("Introduce el nombre de la pelicula:"));
+			this.setDate(ReadData.leerInt("Introduce el año de la pelicula"));
+			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
+			//Meter excepcion GenreException
+			if (genre == -1) {
+				System.out.println("Categoria erronea");
+			}
+			else this.setGenre(Genre.whichGenre(genre));
+			
+		} else {
+			System.out.println("Movie: " + this.name + " no existe");
+
+		}
+	}
+	
+	
 
 }

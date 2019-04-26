@@ -1,6 +1,5 @@
 package tests;
 
-import java.io.File;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
@@ -13,13 +12,10 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import connection.ConnectionBBDD;
-import data.DAOMovie;
-import data.DAOUser;
-import model.Genre;
-import model.Movie;
-import model.User;
+import data.DAOCatalog;
+import model.Catalog;
 
-public class TestMovie {
+public class TestCatalog {
 	private static Logger logger;
 
 	// Inicializo
@@ -65,66 +61,18 @@ public class TestMovie {
 	// --------
 	// TEST
 	// --------
-
 	@Test
 	public void testConnection() throws SQLException {
 		ConnectionBBDD connection = new ConnectionBBDD();
 		logger.info("TestConnection()");
 	
 	}
-	
-	
 	@Test
-	public <T> void testAddMovie() throws SQLException {
-		Movie m = new Movie();
-		m.createMovie();
-		DAOMovie<T> dao = new DAOMovie<T>();
-		dao.add((T) m);
-	}//completar 
-	
-	@Test
-	public <T> void testDropMovie() throws SQLException {
-		Movie m = new Movie();
-		m.deleteMovie();;
-		DAOMovie<T> dao = new DAOMovie<T>();
-		dao.drop((T) m);
+	public <T> void testLIstCatalog() throws SQLException{
+		Catalog c= new Catalog();
+		DAOCatalog<T> dao = new DAOCatalog();
+		dao.listOfCategory((T)c);
 	}
-	
-	@Test
-	public <T> void testUpdateMovie() throws SQLException {
-		Movie m = new Movie("it", 14, Genre.ANIMACION, 0);	
-		DAOMovie<T> dao = new DAOMovie<T>();
-		dao.update((T) m);
-		
-	}
-	
-	
-	@Test
-	public void testGenre() {
-		Movie movie = new Movie();
-		String nombre = "POLICIACA";
-		Genre.exists(nombre);
-		
-	}
-	
-	@Test
-	public <T> void testAddMoviesFromFileWithCat() throws SQLException {
-	
-		File file = new File("ficheros/peliculas_cat.txt");		
-		DAOMovie<T> dao = new DAOMovie<T>();	
-		dao.addMoviesBBDD(file);
-		
-		
-	}
-	
-	@Test
-	public <T> void testAddMoviesFromFileWithnumCat() throws SQLException {
-	
-		File file = new File("ficheros/peliculas_numCat.txt");		
-		DAOMovie<T> dao = new DAOMovie<T>();	
-		dao.addMoviesBBDD(file);
-		
-		
-	}
-	
+
+
 }
