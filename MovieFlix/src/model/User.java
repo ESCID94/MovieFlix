@@ -183,6 +183,7 @@ public class User {
 
 	public void deleteAccount() {
 		try {
+			
 			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
 			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
 		} catch (Exception e) {

@@ -13,8 +13,10 @@ import org.junit.Test;
 
 import connection.ConnectionBBDD;
 import data.DAOMovie;
+import data.DAOUser;
 import model.Genre;
 import model.Movie;
+import model.User;
 
 public class TestMovie {
 	private static Logger logger;
@@ -78,6 +80,23 @@ public class TestMovie {
 		DAOMovie<T> dao = new DAOMovie<T>();
 		dao.add((T) m);
 	}//completar 
+	
+	@Test
+	public <T> void testDropMovie() throws SQLException {
+		Movie m = new Movie();
+		m.deleteMovie();;
+		DAOMovie<T> dao = new DAOMovie<T>();
+		dao.drop((T) m);
+	}
+	
+	@Test
+	public <T> void testUpdateMovie() throws SQLException {
+		Movie m = new Movie("it", 14, Genre.ANIMACION, 0);	
+		DAOMovie<T> dao = new DAOMovie<T>();
+		dao.update((T) m);
+		
+	}
+	
 	
 	@Test
 	public void testGenre() {
