@@ -1,5 +1,6 @@
 package data;
 
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,8 +9,7 @@ import java.util.logging.Logger;
 
 import connection.ConnectionBBDD;
 import model.Movie;
-import model.User;
-import utilities.LecturaDatos;
+import utilities.ReadFile;
 
 /**
  * The Class DAOMovie.
@@ -138,8 +138,6 @@ public class DAOMovie<T> implements IDAO<T> {
 	}
 
 	public void listOfMovies(T t) {
-		/** The connection. */
-		ConnectionBBDD connection = new ConnectionBBDD();
 
 		try {
 			myStatement = connection.getConnection()
@@ -162,7 +160,6 @@ public class DAOMovie<T> implements IDAO<T> {
 		} finally {
 
 			try {
-				
 				if (result != null) {
 					result.close();
 				}
@@ -180,4 +177,10 @@ public class DAOMovie<T> implements IDAO<T> {
 		}
 	}
 
+	
+	public void addMoviesBBDD(File file) throws SQLException{
+		
+		ReadFile.extractMovies(file);
+		
+	}
 }

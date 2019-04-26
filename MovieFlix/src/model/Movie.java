@@ -1,6 +1,6 @@
 package model;
 
-import utilities.LecturaDatos;
+import utilities.ReadData;
 import utilities.Operations;
 
 /**
@@ -35,7 +35,7 @@ public class Movie {
 
 
 
-	public Movie( String name, int date, Genre string, int numWatchers) {
+	public Movie(String name, int date, Genre genre, int numWatchers) {
 		super();
 		this.name = name;
 		this.date = date;
@@ -51,7 +51,8 @@ public class Movie {
 	public void createRandomIdMovie() {
 		// TODO Auto-generated method stub
 		
-		while(Operations.exists(this.idMovie, "movies")) this.idMovie = (int) (Math.random() * 1000 + 1);
+		while (Operations.exists(this.idMovie, "movies")) this.idMovie = (int) (Math.random() * 1000 + 1);
+		
 	}
 	
 	
@@ -122,9 +123,9 @@ public class Movie {
 		
 		if (!Operations.exists(this.idMovie, "movies")) {
 
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la película:"));
-			this.setDate(LecturaDatos.leerInt("Introduce el año de la película"));
-			int genre = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoria:"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pelï¿½cula:"));
+			this.setDate(ReadData.leerInt("Introduce el aï¿½o de la pelï¿½cula"));
+			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {
 				System.out.println("Categoria erronea");
@@ -142,7 +143,7 @@ public class Movie {
 	public void deleteMovie() {
 		try {
 			
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la película:"));
+			this.setName(LecturaDatos.leerString("Introduce el nombre de la pelï¿½cula:"));
 			
 
 		} catch (Exception e) {
@@ -158,8 +159,8 @@ public class Movie {
 
 		
 		if (Operations.existMovie(m.getName())) {
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la película:"));
-			this.setDate(LecturaDatos.leerInt("Introduce el año de la película"));
+			this.setName(LecturaDatos.leerString("Introduce el nombre de la pelï¿½cula:"));
+			this.setDate(LecturaDatos.leerInt("Introduce el aï¿½o de la pelï¿½cula"));
 			int genre = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {

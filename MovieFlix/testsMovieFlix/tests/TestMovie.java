@@ -1,5 +1,6 @@
 package tests;
 
+import java.io.File;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
@@ -105,4 +106,14 @@ public class TestMovie {
 		Genre.exists(nombre);
 		
 	}
+	
+	@Test
+	public <T> void testAddMoviesFromFile() throws SQLException {
+	
+		File file = new File("C:/Users/admin/Documents/Workspace/MovieFlix/src/peliculas_cat.txt");		
+		DAOMovie<T> dao = new DAOMovie<T>();	
+		dao.addMoviesBBDD(file);
+		
+	}
+	
 }
