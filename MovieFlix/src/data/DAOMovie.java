@@ -188,4 +188,7 @@ public class DAOMovie<T> implements IDAO<T> {
 		
 		
 	}
+	public void movieMoreViews() {
+		
+	}
 }

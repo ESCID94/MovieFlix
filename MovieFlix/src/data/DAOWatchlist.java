@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import connection.ConnectionBBDD;
+import model.Movie;
 import model.Watchlist;
 
 /**
