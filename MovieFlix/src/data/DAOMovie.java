@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import connection.ConnectionBBDD;
 import model.Movie;
+import utilities.ReadData;
 import utilities.ReadFile;
 
 /**
@@ -182,5 +183,18 @@ public class DAOMovie<T> implements IDAO<T> {
 		
 		ReadFile.extractMovies(file);
 		
+	}
+	
+	public static void topRated() {
+		int v =-1;
+		while(v<0&&v>5) {
+			try {
+			System.out.println("Cómo valoras la película:");
+			v = ReadData.leerInt();
+			}catch(Exception e) {
+				Logger lgr= Logger.getLogger(DAOWatchlist.class.getName());
+				lgr.log(Level.WARNING, e.getMessage(),e);
+			}
+		}
 	}
 }

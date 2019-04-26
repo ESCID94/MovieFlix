@@ -7,7 +7,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import connection.ConnectionBBDD;
+import model.Movie;
 import model.Watchlist;
+import utilities.ReadData;
 
 /**
  * The Class DAO Watchlist
@@ -35,15 +37,16 @@ public class DAOWatchlist <T> implements IDAO<T> {
 		 * The Connection
 		 */
 		ConnectionBBDD connection = new ConnectionBBDD();
-		
+		Movie m = new Movie();
 		try {
 			Watchlist w = (Watchlist) t;
-			
 			myStatement = connection.getConnection().prepareStatement("INSERT INTO watchlist VALUES (?,?)");
 			myStatement.setInt(1, w.getIdUser());
 			myStatement.setInt(2, w.getIdMovie());
 			System.out.println(myStatement.toString());
 			myStatement.executeUpdate();
+			DAOMovie.topRated();
+			
 		}catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DAOWatchlist.class.getName());
 			lgr.log(Level.SEVERE,e.getMessage(), e );
@@ -122,6 +125,7 @@ public class DAOWatchlist <T> implements IDAO<T> {
 			}
 		}
 	}
+	
 	
 	
 }

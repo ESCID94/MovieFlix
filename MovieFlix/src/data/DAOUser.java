@@ -8,6 +8,9 @@ import java.util.logging.Logger;
 import connection.ConnectionBBDD;
 import exceptions.DAOException;
 import model.User;
+import model.Watchlist;
+import utilities.Operations;
+import utilities.ReadData;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -162,4 +165,6 @@ public class DAOUser<T> implements IDAO<T> {
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
+
+	
 }
