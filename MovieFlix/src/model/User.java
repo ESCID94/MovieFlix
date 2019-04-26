@@ -227,8 +227,8 @@ public class User {
 		
 		if (Operations.exists(u.getNameUser())) {
 
-			this.setNameUser(LecturaDatos.leerString("Introduce el nombre de usuario: "));
-			this.setLastName(LecturaDatos.leerString("Introduce el apellido: "));
+			this.setNameUser(ReadData.leerString("Introduce el nombre de usuario: "));
+			this.setLastName(ReadData.leerString("Introduce el apellido: "));
 			}
 		else System.out.println("No tienes una subscripcion");
 		
@@ -239,8 +239,8 @@ public void modifySubscription(User u) {
 		
 		if (Operations.exists(u.getNameUser())) {
 
-			this.setNameUser(LecturaDatos.leerString("Introduce el nombre de usuario: "));
-			this.setLastName(LecturaDatos.leerString("Introduce el apellido: "));
+			this.setNameUser(ReadData.leerString("Introduce el nombre de usuario: "));
+			this.setLastName(ReadData.leerString("Introduce el apellido: "));
 			}
 		else System.out.println("No tienes una subscripcion");
 		

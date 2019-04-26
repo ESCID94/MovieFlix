@@ -197,6 +197,7 @@ public class DAOMovie<T> implements IDAO<T> {
 				Logger lgr= Logger.getLogger(DAOWatchlist.class.getName());
 				lgr.log(Level.WARNING, e.getMessage(),e);
 			}
+		}
 	}
 
 	public void movieMoreViews() {

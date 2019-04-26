@@ -10,7 +10,7 @@ import connection.ConnectionBBDD;
 import model.Subscription;
 import model.TypeCatalog;
 import model.User;
-import utilities.LecturaDatos;
+import utilities.ReadData;
 
 public class DAOSubscription<T> implements IDAO<T> {
 	
@@ -107,7 +107,7 @@ ConnectionBBDD connection = new ConnectionBBDD();
 		try {
 			
 			User u = (User) t;
-			String su=( LecturaDatos.leerString("Introduce la nueva suscripcion (BASIC, EXTRA, PREMIUM"));
+			String su=( ReadData.leerString("Introduce la nueva suscripcion (BASIC, EXTRA, PREMIUM"));
 			
 			
 			myStatement = connection.getConnection().prepareStatement("UPDATE subscription,users SET typeCatalog=? WHERE users.nameUser=? and users.lastName=?");

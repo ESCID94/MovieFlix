@@ -1,6 +1,6 @@
 package model;
 
-import utilities.LecturaDatos;
+import utilities.ReadData;
 import utilities.Operations;
 
 public class Subscription {
@@ -88,10 +88,10 @@ public class Subscription {
 		
 		if (!Operations.exists(this.idSubscription, "subscription")) {
 
-			this.setIdUser(LecturaDatos.leerInt("Introduce el id de usuario: "));
-			this.setFee(LecturaDatos.leerInt("Introduce el fee: "));
-			this.setTypePayment(LecturaDatos.leerString("Introduce el tipo de pago: "));
-			int type = TypeCatalog.exists(LecturaDatos.leerString("Introduce el tipo de catálogo: "));
+			this.setIdUser(ReadData.leerInt("Introduce el id de usuario: "));
+			this.setFee(ReadData.leerInt("Introduce el fee: "));
+			this.setTypePayment(ReadData.leerString("Introduce el tipo de pago: "));
+			int type = TypeCatalog.exists(ReadData.leerString("Introduce el tipo de catálogo: "));
 			//Meter excepcion TypeCatalogException
 			if (type == -1) {
 				System.out.println("Tipo de catálogo erróneo ");
