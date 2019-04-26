@@ -33,7 +33,7 @@ public class DAOCatalog <T> implements IDAO <T> {
 	@Override
 	public void add(T t) throws SQLException {
 		// TODO Auto-generated method stub
-ConnectionBBDD connection = new ConnectionBBDD();
+		ConnectionBBDD connection = new ConnectionBBDD();
 		
 		try {
 			Catalog cat = (Catalog) t;

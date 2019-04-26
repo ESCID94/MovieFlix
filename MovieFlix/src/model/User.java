@@ -3,7 +3,7 @@ package model;
 import java.sql.Time;
 import java.util.Random;
 
-import utilities.LecturaDatos;
+import utilities.ReadData;
 import utilities.Operations;
 
 // TODO: Auto-generated Javadoc
@@ -173,18 +173,18 @@ public class User {
 
 		if (!Operations.exists(this.idUser, "users")) {
 
-			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
-			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
-			setMail(LecturaDatos.leerString("Introduce tu email:"));
-			setBirthYear(LecturaDatos.leerInt("Introduce tu año de nacimiento"));
+			setNameUser(ReadData.leerString("Introduce tu nombre:"));
+			setLastName(ReadData.leerString("Introduce tu apellido:"));
+			setMail(ReadData.leerString("Introduce tu email:"));
+			setBirthYear(ReadData.leerInt("Introduce tu año de nacimiento"));
 		} else
 			System.out.println("Usuario" + this.idUser + " ya existe");
 	}
 
 	public void deleteAccount() {
 		try {
-			setNameUser(LecturaDatos.leerString("Introduce tu nombre:"));
-			setLastName(LecturaDatos.leerString("Introduce tu apellido:"));
+			setNameUser(ReadData.leerString("Introduce tu nombre:"));
+			setLastName(ReadData.leerString("Introduce tu apellido:"));
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getLocalizedMessage());
 		}
@@ -199,8 +199,8 @@ public class User {
 		
 		if (Operations.exists(u.getNameUser())) {
 
-			u.setNameUser(LecturaDatos.leerString("Introduce tu nuevo nombre:"));
-			u.setLastName(LecturaDatos.leerString("Introduce tu nuevo apellido:"));
+			u.setNameUser(ReadData.leerString("Introduce tu nuevo nombre:"));
+			u.setLastName(ReadData.leerString("Introduce tu nuevo apellido:"));
 			
 		} else {
 			System.out.println("Este nombre: " + this.nameUser + " no existe");
