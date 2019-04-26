@@ -183,4 +183,7 @@ public class DAOMovie<T> implements IDAO<T> {
 		ReadFile.extractMovies(file);
 		
 	}
+	public void movieMoreViews() {
+		
+	}
 }
