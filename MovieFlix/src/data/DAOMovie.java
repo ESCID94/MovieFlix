@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import connection.ConnectionBBDD;
 import model.Movie;
+import utilities.ReadData;
 import utilities.ReadFile;
 
 /**
@@ -180,7 +181,11 @@ public class DAOMovie<T> implements IDAO<T> {
 	
 	public void addMoviesBBDD(File file) throws SQLException{
 		
-		ReadFile.extractMovies(file);
+		if (ReadData.leerString("Introduce si el fichero es por categorias de (nombre) o (numero))").equals("nombre")){
+			ReadFile.extractMoviesByCat(file);
+		} 
+		else ReadFile.extractMoviesByNumCat(file);
+		
 		
 	}
 }
