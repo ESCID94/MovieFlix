@@ -11,7 +11,7 @@ import connection.ConnectionBBDD;
 import model.Catalog;
 import model.Genre;
 
-import utilities.LecturaDatos;
+import utilities.ReadData;
 
 /**
  * The Class DAOCatalog.
@@ -142,9 +142,9 @@ public class DAOCatalog<T> implements IDAO<T> {
 	public void listOfCategory(T t) {
 		ConnectionBBDD connection = new ConnectionBBDD();
 		try {
-			int categoryUser = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categor�a:"));
+			int categoryUser = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			if (categoryUser == -1) {
-				System.out.println("Categor�a erronea.");
+				System.out.println("Categoria erronea.");
 			} else {
 
 				myStatement = connection.getConnection()

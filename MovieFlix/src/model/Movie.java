@@ -39,7 +39,7 @@ public class Movie {
 		super();
 		this.name = name;
 		this.date = date;
-		this.genre = string;
+		this.genre = genre;
 		this.numWatchers = numWatchers;
 		this.createRandomIdMovie();
 	}
@@ -143,7 +143,7 @@ public class Movie {
 	public void deleteMovie() {
 		try {
 			
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la pel�cula:"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pel�cula:"));
 			
 
 		} catch (Exception e) {
@@ -159,9 +159,9 @@ public class Movie {
 
 		
 		if (Operations.existMovie(m.getName())) {
-			this.setName(LecturaDatos.leerString("Introduce el nombre de la pel�cula:"));
-			this.setDate(LecturaDatos.leerInt("Introduce el a�o de la pel�cula"));
-			int genre = Genre.exists(LecturaDatos.leerString("Introduce el nombre de la categoria:"));
+			this.setName(ReadData.leerString("Introduce el nombre de la pel�cula:"));
+			this.setDate(ReadData.leerInt("Introduce el a�o de la pel�cula"));
+			int genre = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));
 			//Meter excepcion GenreException
 			if (genre == -1) {
 				System.out.println("Categoria erronea");
