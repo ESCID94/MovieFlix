@@ -102,7 +102,7 @@ public class TestSubscription {
 			u.setLastName("gonzalez");
 			Subscription sub = new Subscription(100,136,20,"efectivo",TypeCatalog.BASIC);
 			u.setSub(sub);
-			u.modifySubscription(u);
+			u.updateSubscription(u);
 			DAOSubscription<T> dao = new DAOSubscription<T>();
 			dao.update((T) u);
 		} 

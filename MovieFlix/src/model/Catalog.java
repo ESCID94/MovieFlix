@@ -52,6 +52,24 @@ public class Catalog {
 	public String toString() {
 		return "Catalog [idSubscription=" + idSubscription + ", idGenre=" + idGenre + "]";
 	}
+
+
+	public void createCatalog() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void deleteCatalog() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void updateCatalog(Catalog t) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

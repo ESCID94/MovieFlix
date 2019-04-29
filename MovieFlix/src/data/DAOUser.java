@@ -115,7 +115,8 @@ public class DAOUser<T> implements IDAO<T> {
 			
 			String nameAux = u.getNameUser();
 			
-			u.modifyUser(u);
+			System.out.println("Introduce nuevos valores");
+			u.updateUser(u);
 			
 			miStatement = connection.getConnection().prepareStatement("UPDATE USERS SET NAMEUSER=?,LASTNAME=? WHERE NAMEUSER=?");
 		

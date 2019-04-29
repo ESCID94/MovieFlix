@@ -209,13 +209,13 @@ public class User {
 	/**
 	 * Modifies the user
 	 */
-	public void modifyUser(User u) {
+	public void updateUser(User u) {
 
 		
 		if (Operations.exists(u.getNameUser())) {
 
-			u.setNameUser(ReadData.leerString("Introduce tu nuevo nombre:"));
-			u.setLastName(ReadData.leerString("Introduce tu nuevo apellido:"));
+			u.setNameUser(ReadData.leerString("Introduce tu nombre:"));
+			u.setLastName(ReadData.leerString("Introduce tu apellido:"));
 			
 		} else {
 			System.out.println("Este nombre: " + this.nameUser + " no existe");
@@ -235,7 +235,7 @@ public class User {
 	
 	}
 	
-public void modifySubscription(User u) {
+	public void updateSubscription(User u) {
 		
 		if (Operations.exists(u.getNameUser())) {
 

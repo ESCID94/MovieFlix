@@ -71,7 +71,7 @@ public class TestCatalog {
 	public <T> void testLIstCatalog() throws SQLException{
 		Catalog c= new Catalog();
 		DAOCatalog<T> dao = new DAOCatalog();
-		dao.listOfCategory((T)c);
+		dao.listOfGenres((T)c);
 	}
 
 

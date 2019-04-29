@@ -1,8 +1,13 @@
 package control;
 
 import gui.Menu;
+import model.Catalog;
+import model.Movie;
+import model.Subscription;
+import model.User;
+import model.Watchlist;
 import services.IServices;
-import services.ServicesUser;
+import services.ServicesImp;
 import utilities.ReadData;
 
 // TODO: Auto-generated Javadoc
@@ -11,19 +16,18 @@ import utilities.ReadData;
  *
  * @param <T> the generic type
  */
-public class ControlMenu<T> {
+public class ControlMenu {
 	
-	/** The services. */
-	IServices <T> services = new ServicesUser<T>();
-
+	
+	
     /**
      * Open menu.
      */
-    public void openMenu() {
+    public static void openMenu() {
         boolean contin = true;
         do {
             Menu.showMenu();
-            contin = this.optionSelection();
+            contin = optionSelection();
         } while (contin);
         System.out.println("   --- Adiós muy buenas ---");
     }
@@ -33,55 +37,63 @@ public class ControlMenu<T> {
      *
      * @return true, if successful
      */
-    public boolean optionSelection() {
-
+    public static <T> boolean optionSelection() {
+    	/** The services. */
+    	ServicesImp<T> services = new ServicesImp<T>();
+    	
+    	User user = new User();
+    	Movie movie = new Movie();
+    	Catalog catalog = new Catalog();
+    	Subscription sub = new Subscription();
+    	Watchlist watchlist = new Watchlist();
+    	
         boolean contin = true;
-
+       
         try {
             switch (ReadData.leerInt()) {
                 case 1:
                     //ALTA DE UN USUARIO
-                    services.add(null);
+                    services.add((T) user);
                     break;
 
                 case 2:
                     //ELIMINAR UN USUARIO
-                    services.drop(null);
+                    services.drop((T) user);
                     break;
 
                 case 3:
                     //MODIFICAR UN USUARIO
-                    services.alter(null);
+                    services.update((T) user);
                     break;
 
                 case 4:
                     //ALTA DE UNA PELICULA
-                    services.add(null);
+                    services.add((T) movie);
                     break;
 
                 case 5:
                     //ELIMINAR UNA PELICULA
-                    services.drop(null);
+                    services.drop((T) movie);
                     break;
 
                 case 6:
                     //MODIFICAR UNA PELICULA
-                    services.alter(null);
+                    services.update((T) movie);
                     break;
 
                 case 7:
-                    //ALTA DE UNA CATEGORIA
-                    services.add(null);
+                    //ALTA DE UNA SUBSCRIPCION
+                    services.add((T) sub);
                     break;
 
                 case 8:
-                    //ELIMINAR UNA CATEGORIA
-                    services.drop(null);
+                    //ELIMINAR UNA SUBSCRIPCION
+                    services.drop((T) sub);
                     break;
                     
                 case 9:
-                    //MODIFICAR UNA CATEGORIA
-                    services.alter(null);
+                    //MODIFICAR UNA SUBSCRIPCION
+                    services.update((T) sub);
                     break;
                
 
@@ -95,13 +107,14 @@ public class ControlMenu<T> {
         return contin;
     }
 
+
     /**
      * Salir.
      *
      * @return true, if successful
      * @throws Exception the exception
      */
-    private boolean salir() throws Exception {
+    private static boolean salir() throws Exception {
         String sino = ReadData.leerString("   ¿Está seguro?(S/N)");
         return (sino.toUpperCase().charAt(0) != 'S');
     }

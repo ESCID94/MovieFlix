@@ -26,10 +26,7 @@ public class DAOCatalog<T> implements IDAO<T> {
 	 * The result
 	 */
 	ResultSet result;
-	/**
-	 * The connection.
-	 */
-	ConnectionBBDD connection = new ConnectionBBDD();
+
 	/**
 	 * The my Statement.
 	 */
@@ -139,7 +136,7 @@ public class DAOCatalog<T> implements IDAO<T> {
 		}
 	}
 
-	public void listOfCategory(T t) {
+	public void listOfGenres(T t) {
 		ConnectionBBDD connection = new ConnectionBBDD();
 		try {
 			int categoryUser = Genre.exists(ReadData.leerString("Introduce el nombre de la categoria:"));

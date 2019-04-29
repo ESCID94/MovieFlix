@@ -57,6 +57,21 @@ public class Watchlist {
 	public String toString() {
 		return "Watchlist [idUser=" + idUser + ", idMovie=" + idMovie + ", movieList=" + movieList + "]";
 	}
+
+	public void createWatchList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteWatchlist() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateWatchlist(Watchlist t) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

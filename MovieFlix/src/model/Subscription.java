@@ -105,6 +105,16 @@ public class Subscription {
 	
 		
 	}
+
+	public void deleteSubscription() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateSub(Subscription t) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

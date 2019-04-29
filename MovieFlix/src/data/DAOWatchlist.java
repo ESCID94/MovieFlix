@@ -22,10 +22,7 @@ public class DAOWatchlist <T> implements IDAO<T> {
 	 *  The result
 	 */
 	ResultSet result;
-	/**
-	 * The connection
-	 */
-	ConnectionBBDD connection = new ConnectionBBDD();
+
 	/**
 	 * The myStatement
 	 */
@@ -97,7 +94,7 @@ public class DAOWatchlist <T> implements IDAO<T> {
 	@Override
 	public void update(T t) throws SQLException {
 		// TODO Auto-generated method stub
-		ConnectionBBDD connectionBBDD = new ConnectionBBDD();
+		ConnectionBBDD connection = new ConnectionBBDD();
 		try {
 			Watchlist w = (Watchlist) t;
 			
@@ -117,7 +114,7 @@ public class DAOWatchlist <T> implements IDAO<T> {
 					myStatement.close();
 				}
 				if (connection != null) {
-					connectionBBDD.getConnection().close();
+					connection.getConnection().close();
 				}
 			}catch(SQLException e) {
 				Logger lgr = Logger.getLogger(DAOWatchlist.class.getName());

@@ -18,10 +18,7 @@ public class DAOSubscription<T> implements IDAO<T> {
 	 * The result
 	 */
 	ResultSet result;
-	/**
-	 * The connection.
-	 */
-	ConnectionBBDD connection = new ConnectionBBDD();
+
 	/**
 	 * The my Statement.
 	 */

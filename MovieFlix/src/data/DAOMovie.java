@@ -26,10 +26,6 @@ public class DAOMovie<T> implements IDAO<T> {
 	 */
 	ResultSet result;
 	/**
-	 * The connection.
-	 */
-	ConnectionBBDD connection = new ConnectionBBDD();
-	/**
 	 * The my Statement.
 	 */
 	PreparedStatement myStatement;
@@ -108,7 +104,7 @@ public class DAOMovie<T> implements IDAO<T> {
 			
 			String nameAux = m.getName();
 			
-			m.modifyUser(m);;
+			m.updateMovie(m);;
 			
 			myStatement = connection.getConnection().prepareStatement("UPDATE MOVIES SET name=?,date=?,idGenre=? WHERE NAME=?");
 		
@@ -139,7 +135,9 @@ public class DAOMovie<T> implements IDAO<T> {
 	}
 
 	public void listOfMovies(T t) {
-
+		/** The connection. */
+		ConnectionBBDD connection = new ConnectionBBDD();
+		
 		try {
 			myStatement = connection.getConnection()
 					.prepareStatement("SELECT name,date,idGenre,numWatchers from movies");

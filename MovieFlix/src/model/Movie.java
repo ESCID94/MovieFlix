@@ -153,9 +153,9 @@ public class Movie {
 	}
 	
 	/**
-	 * Modifies the user
+	 * Modifies the movie
 	 */
-	public void modifyUser(Movie m) {
+	public void updateMovie(Movie m) {
 
 		
 		if (Operations.existMovie(m.getName())) {
@@ -173,7 +173,8 @@ public class Movie {
 
 		}
 	}
-	
+
+
 	
 
 }
